@@ -4,12 +4,13 @@
 
 ---slide---
 
-### What is FP
+### What is FP?
 
 <ul>
 <li class="fragment">Loving your compiler</li>
 <li class="fragment">Loving your teammembers by being explicit</li>
 <li class="fragment">Loving your cake</li>
+<li class="fragment">Loving your functions</li>
 </ul>
 
 ---slide---
@@ -59,6 +60,7 @@ fun divide(a : Double, b : Double) : Double = if(b == 0.0) {
   a/b 
 	
 }
+
 </code>
 </pre>
 
@@ -70,6 +72,7 @@ Double, Double &rightarrow; Double (or crash)
 
 <pre>
 <code class="hljs kotlin" style="max-height: 100%;font-size:130%">fun divide(a : Double, b : Double) : Double? = if(b == 0.0) null else a/b
+
 </code>
 </pre>
 
@@ -88,6 +91,7 @@ Double, Double &rightarrow; Double?
   ?.let{ divide(it, 2.0) } 
 		
   ?: 0.0
+
 </code>
 </pre>
 

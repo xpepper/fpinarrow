@@ -18,6 +18,7 @@ class ConferenceRepository {
 class BookingRepository {
   fun store(booking : Booking) : Long = TODO()
 }
+
 </code>
 </pre>
 
@@ -36,6 +37,7 @@ class BookingRepository {
 	
   return bookingRepository.store(b)
 }
+
 </code>
 </pre>
 
@@ -56,6 +58,7 @@ class BookingRepository {
 	
   return ResponseEntity.ok(createBooking)
 }
+
 </code>
 </pre>
 
@@ -83,6 +86,7 @@ class BookingRepository {
     return ResponseEntity.internalServerError().build()
   }
 }
+
 </code>
 </pre>
 
@@ -101,6 +105,7 @@ class BookingRepository {
 	
   data class BadStateWithException(val throwable : Throwable) : BadState()
 }
+
 </code>
 </pre>
 
@@ -119,6 +124,7 @@ class ConferenceRepository {
 class BookingRepository {
   fun store(booking : Booking) : Either&lt;BadState, Long> = TODO()
 }
+
 </code>
 </pre>
 
@@ -146,6 +152,7 @@ class BookingRepository {
     }
   }
 }
+
 </code>
 </pre>
 
@@ -166,6 +173,7 @@ class BookingRepository {
       }
     }
 }
+
 </code>
 </pre>
 
@@ -199,7 +207,7 @@ Making monads easy
 		
     rightValue //return
   }
-}
+
 </code>
 </pre>
 
@@ -212,7 +220,7 @@ Making monads easy
   either.eager {
     ...
   }
-}
+
 </code>
 </pre>
 
@@ -230,6 +238,7 @@ Making monads easy
     bookingRepository.store(b).bind() //return
   }
 }
+
 </code>
 </pre>
 

@@ -10,7 +10,7 @@
 
 ---slide---
 
-### Changing values
+### Some data classes
 
 <pre>
 <code class="hljs kotlin" style="max-height: 100%;font-size:150%">data class Person(val name: String, val city: City)
@@ -18,6 +18,7 @@
 data class City(val name: String, val street : Street)
 
 data class Street(val name : String)
+
 </code>
 </pre>
 
@@ -29,6 +30,7 @@ data class Street(val name : String)
 <code class="hljs kotlin" style="max-height: 100%;font-size:150%">val person = Person("MyName", City("MyCity", Street("MyStreet")))
 
 val newPerson = person.copy(name = "MyNewName")
+
 </code>
 </pre>
 
@@ -41,6 +43,7 @@ val newPerson = person.copy(name = "MyNewName")
     street = person.city.street.copy(name = "MyNewStreet")
   )
 )
+
 </code>
 </pre>
 
@@ -75,11 +78,12 @@ val newPerson = person.copy(name = "MyNewName")
 #### Creating a Lens
 
 <pre>
-<code class="hljs kotlin" style="max-height: 100%;font-size:150%" data-line-numbers="1-5|3|4">//Person > City
+<code class="hljs kotlin" style="max-height: 100%;font-size:150%" data-line-numbers="1-6|3|4">//Person > City
 val cityLens: Lens&lt;Person, City> = Lens(
   get = { it.city },
   set = { person : Person, city : City -> person.copy(city = city) }
 )
+
 </code>
 </pre>
 
@@ -99,6 +103,7 @@ val modifyCity = cityLens.modify(person) { //Modify City property
   c : City -> c.copy(name = "MyNewCity") 
 	
 }
+
 </code>
 </pre>
 
@@ -116,6 +121,7 @@ val streetNameLens: Lens&lt;Street, String> = Lens(
   get = { it.name },
   set = { street: Street, name: String -> street.copy(name = name) }
 )
+
 </code>
 </pre>	
 ---slide---
@@ -131,6 +137,7 @@ val personStreetNameLens = cityLens
 	
 val updatedStreetPerson = personStreetNameLens.modify(person){ "MyNewStreet" }
 //Person(name=MyName, city=City(name=MyCity, street=Street(name=MyNewStreet)))
+
 </code>
 </pre>	
 
@@ -141,6 +148,7 @@ val updatedStreetPerson = personStreetNameLens.modify(person){ "MyNewStreet" }
 <code class="hljs kotlin" style="max-height: 100%;font-size:130%">@optics data class Person(val name: String, val city: City) {companion object}
 @optics data class City(val name: String, val street: Street) {companion object}
 @optics data class Street(val name: String) {companion object}
+
 </code>
 </pre>
 
@@ -151,6 +159,7 @@ val updatedStreetPerson = personStreetNameLens.modify(person){ "MyNewStreet" }
 <pre>
 <code class="hljs kotlin" style="max-height: 100%;font-size:130%" data-line-numbers="2">val person = Person("MyName", City("MyCity", Street("MyStreet")))
 val updatedStreetPerson = Person.city.street.name.modify(person){"MyNewStreet"}
+
 </code>
 </pre>
 
@@ -173,6 +182,7 @@ val person = Person("Bob",
     Person("sis", listOf())
   )
 )
+
 </code>
 </pre>
 
@@ -192,6 +202,7 @@ val personNameLens: Lens&lt;Person, String> = Lens(
   get = { it.name },
   set = { p : Person, v : String -> p.copy(name = v) }
 )
+
 </code>
 </pre>
 
@@ -214,6 +225,7 @@ val updateAllSiblingNames = siblingsLens
 //	Person(name=newSiblingName, siblings=[]), 
 //	Person(name=newSiblingName, siblings=[])]
 //)
+
 </code>
 </pre>
 
@@ -236,6 +248,7 @@ val updateFirstSiblinName = siblingsLens
 //	Person(name=newSiblingName, siblings=[]), 
 //	Person(name=sis, siblings=[])]
 //)
+
 </code>
 </pre>
 
@@ -258,6 +271,7 @@ val updateFirstSiblinName = siblingsLens
 //	Person(name=newSiblingName, siblings=[]), 
 //	Person(name=sis, siblings=[])]
 //)
+
 </code>
 </pre>
 

@@ -25,6 +25,7 @@ Either<Left, Right>
 data class Left&lt;out A> : Either&lt;A, Nothing>()
 
 data class Right&lt;out B> : Either&lt;Nothing, B>()
+
 </code>
 </pre>
 
@@ -43,6 +44,7 @@ data class Right&lt;out B> : Either&lt;Nothing, B>()
     Either.Right(a / b)
 		
   }
+
 </code>
 </pre>
 
@@ -61,6 +63,7 @@ data class Right&lt;out B> : Either&lt;Nothing, B>()
     (a / b).right()
 		
   }
+
 </code>
 </pre>
 
@@ -72,6 +75,7 @@ data class Right&lt;out B> : Either&lt;Nothing, B>()
 <code class="hljs kotlin" style="max-height: 100%;font-size:150%">fun divide(a : Double, b : Double): Either&lt;Throwable, Double> = 
 
   Either.catch { a / b }
+
 </code>
 </pre>
 
@@ -82,11 +86,12 @@ Double, Double &rightarrow; Either<Throwable, Double>
 ### Transforming the left
 
 <pre>
-<code class="hljs kotlin" style="max-height: 100%;font-size:150%" data-line-numbers="5">fun divide(a : Double, b : Double): Either&lt;String, Double> = 
+<code class="hljs kotlin" style="max-height: 100%;font-size:140%" data-line-numbers="5">fun divide(a : Double, b : Double): Either&lt;String, Double> = 
 
   Either.catch { a / b }
 	
     .mapLeft { leftValue : Throwable -> "Cannot divide by zero" }
+
 </code>
 </pre>
 
@@ -98,11 +103,12 @@ Double, Double &rightarrow; Either<String, Double>
 ### Transforming the right
 
 <pre>
-<code class="hljs kotlin" style="max-height: 100%;font-size:150%" data-line-numbers="5">fun divide(a : Double, b : Double): Either&lt;Throwable, String> = 
+<code class="hljs kotlin" style="max-height: 100%;font-size:140%" data-line-numbers="5">fun divide(a : Double, b : Double): Either&lt;Throwable, String> = 
 	
   Either.catch { a / b }
 	
     .map { rightValue : Double -> rightValue.toString() }
+
 </code>
 </pre>
 
@@ -129,6 +135,7 @@ val orHandle: Double = myEither.getOrHandle { leftValue: String -> {
     return 0.0
   } 
 }
+
 </code>
 </pre>
 
@@ -153,5 +160,6 @@ val result : Double = divide(6.0, 2.0) // 2.0
   ?.let { it * 2 } // 4.0
   ?.let{ divide(it, 2.0) } // 2.0
   ?: 0.0 // 2.0
+
 </code>
 </pre>
