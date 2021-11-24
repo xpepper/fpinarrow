@@ -67,7 +67,7 @@ val newPerson = person.copy(name = "MyNewName")
 
 #### Lens
 
-* Looking at a propery of an object
+* Looking at a property of an object
 
 <div>
 <img style="height:500px" src="slides/images/lens.jpg">
