@@ -1,0 +1,4 @@
+Functional programming is gaining popularity and partly because of this people have been switching to Kotlin.
+Although it fits the paradigm better than Java, there is still quite a bit missing to unleash the full power of FP.
+Arrow is here to fill in the missing bits with things like new datatypes, e.g. Try, Either, and Optics. Arrow is the most popular functional programming library for Kotlin.
+In this talk we will go through what problems Arrow can solve for you and how it can help you with your everyday programming.
