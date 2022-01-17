@@ -42,6 +42,7 @@ A &rightarrow; B
 
 * Exceptions
 * Nullability
+* Result type*
 
 ---slide---
 

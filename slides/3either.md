@@ -69,7 +69,7 @@ data class Right&lt;out B> : Either&lt;Nothing, B>()
 
 ---slide---
 
-### Creating an either with catch
+### Creating an either with catch*
 
 <pre>
 <code class="hljs kotlin" style="max-height: 100%;font-size:150%">fun divide(a : Double, b : Double): Either&lt;Throwable, Double> = 
