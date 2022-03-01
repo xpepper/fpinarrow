@@ -1,7 +1,3 @@
-# Functional programming in Kotlin: exploring Arrow
-
----slide---
-
 ## whoami
 <img style="float: right;" src="slides/images/photo.jpg">
 
