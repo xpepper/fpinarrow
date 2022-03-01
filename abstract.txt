@@ -7,3 +7,5 @@ In this talk we will go through what problems Arrow can solve for you and how it
 
 https://www.youtube.com/watch?v=Wojgv2MeMGU
 https://tiesvandeven.gitlab.io/fpinarrow/
+
+I am very passionate about this subject, and I also love teaching/sharing knowledge. So combining my teaching experience with energy from passion (and some programmer humor) I can give a well structured introduction to the Arrow framework that should be suited for most people (even if there is no previous experience with kotlin or functional programming)
